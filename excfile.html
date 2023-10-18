@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Excel Data on Website</title>
+</head>
+<body>
+    <div id="data"></div>
+    
+    <script>
+        fetch('excel.php')
+            .then(response => response.json())
+            .then(data => {
+                // Display data on the website
+                document.getElementById('data').textContent = JSON.stringify(data, null, 2);
+            })
+            .catch(error => console.error('Error:', error));
+    </script>
+</body>
+</html>
